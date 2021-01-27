@@ -9,7 +9,7 @@
 
 void sig_term_handler(int signum, siginfo_t *info, void *ptr)
 {
-    write(STDERR_FILENO, SIGTERM_MSG, sizeof(SIGTERM_MSG));
+    printf("SIGTERM CATCHED\n");
 }
 
 void catch_sigterm()
@@ -27,6 +27,8 @@ int main()
 {
     catch_sigterm();
     printf("I am sleeping...\n");
-    sleep(3000);
+    while(1) {
+        sleep(3000);
+    }
     return 0;
 }
