@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: catch
+ labels:
+   app: catch
+spec:
+ containers:
+ - name: catch
+   image: jam2in/sigcatch_example:0.1.0
+   command: ["/sigcatch_example/catch"]
+ terminationGracePeriodSeconds: 10
