@@ -13,5 +13,4 @@ spec:
      preStop:
        exec:
          command: ["sleep 30"]
- terminationGracePeriodSeconds: 10
-
+ terminationGracePeriodSeconds: 20

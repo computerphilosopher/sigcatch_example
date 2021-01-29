@@ -9,8 +9,15 @@
 
 void sig_term_handler(int signum, siginfo_t *info, void *ptr)
 {
-    printf("SIGTERM CATCHED\n");
-    sleep(3000);
+    int count = 0;
+    while (1) {
+        printf("ignore SIGTERM (%ds)\n", count++);
+        sleep(1);
+
+        if (count > 3000) {
+            break;
+        }
+    }
 }
 
 void catch_sigterm()
@@ -27,7 +34,10 @@ void catch_sigterm()
 int main()
 {
     catch_sigterm();
-    printf("I am sleeping...\n");
-    sleep(3000);
+    int count = 0;
+    while (1) {
+        printf("I am sleeping... (%ds)\n", count++);
+        sleep(1);
+    }
     return 0;
 }
