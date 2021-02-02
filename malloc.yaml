@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: malloc
+ labels:
+   app: malloc
+spec:
+ containers:
+     #imagePullPolicy: Always
+ - name: malloc
+   image: jam2in/sigcatch_example:latest
+   command: ["/sigcatch_example/malloc"]
+   lifecycle:
+     preStop:
+       exec:
+         command: ['/bin/sh', '-c', 'sleep 50']
+ terminationGracePeriodSeconds: 10
