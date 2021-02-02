@@ -29,16 +29,29 @@ void catch_sigterm()
 }
 
 
-int main() {
+int main(int argc, char** argv) {
     catch_sigterm();
 
     int *ptr = NULL;
-    int gb = 1024 * 1024 * 1024;
+    //100mib
+    int to_alloc = 1024 * 1024 * 100;
 
-    for(int i=0; i<4; i++) {
-        ptr = malloc(gb);
-        memset(ptr, 0, gb);
-        sleep(5);
+    //1Gib
+    int total_alloc = 1024 * 1024 * 1024;
+    if (argc > 1) {
+        total_alloc = atoi(argv[1]);
+        if (total_alloc == 0) {
+            perror("atoi failed\n");
+        }
+    }
+    printf("total alloc bytes: %d\n", total_alloc);
+
+    int cur_bytes = 0;
+    while (cur_bytes < total_alloc) {
+        ptr = malloc(to_alloc);
+        memset(ptr, 0, to_alloc);
+        cur_bytes += to_alloc;
+        sleep(1);
     }
 
     while(1) {
