@@ -37,14 +37,14 @@ int main(int argc, char** argv) {
     int to_alloc = 1024 * 1024 * 100;
 
     //1Gib
-    int total_alloc = 1024 * 1024 * 1024;
+    long long total_alloc = 1024 * 1024 * 1024;
     if (argc > 1) {
         total_alloc = atoi(argv[1]);
         if (total_alloc == 0) {
             perror("atoi failed\n");
         }
     }
-    printf("total alloc bytes: %d\n", total_alloc);
+    printf("total alloc bytes: %lld\n", total_alloc);
 
     int cur_bytes = 0;
     while (cur_bytes < total_alloc) {
