@@ -8,7 +8,7 @@ spec:
  containers:
      #imagePullPolicy: Always
  - name: malloc
-   image: jam2in/sigcatch_example:latest
+   image: jam2in/eviction_example:latest
    command: ["/sigcatch_example/malloc"]
    lifecycle:
      preStop:
