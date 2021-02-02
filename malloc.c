@@ -35,10 +35,14 @@ int main() {
     int *ptr = NULL;
     int gb = 1024 * 1024 * 1024;
 
-    while(1) {
+    for(int i=0; i<4; i++) {
         ptr = malloc(gb);
         memset(ptr, 0, gb);
         sleep(5);
+    }
+
+    while(1) {
+        sleep(10);
     }
     
     return 0;
