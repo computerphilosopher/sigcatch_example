@@ -7,6 +7,7 @@ metadata:
 spec:
  containers:
  - name: catch
-   image: jam2in/sigcatch_example:0.1.0
+   image: jam2in/sigcatch_example:latest
    command: ["/sigcatch_example/catch"]
- terminationGracePeriodSeconds: 10
+   #imagePullPolicy: Always
+ terminationGracePeriodSeconds: 20
