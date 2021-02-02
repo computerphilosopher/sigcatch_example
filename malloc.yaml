@@ -9,7 +9,9 @@ spec:
      #imagePullPolicy: Always
  - name: malloc
    image: jam2in/eviction_example:latest
-   command: ["/sigcatch_example/malloc"]
+   #1.5Gb
+   command: ['/sigcatch_example/malloc', '16106127361']
+   #command: ['/bin/bash', '-c', 'sleep 500000']
    lifecycle:
      preStop:
        exec:
