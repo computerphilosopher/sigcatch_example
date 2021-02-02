@@ -37,7 +37,7 @@ int main() {
 
     while(1) {
         ptr = malloc(gb);
-        memset(ptr, 0, 0);
+        memset(ptr, 0, gb);
         sleep(5);
     }
     
