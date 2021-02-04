@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
     //1Gib
     long long total_alloc = 1024 * 1024 * 1024;
     if (argc > 1) {
-        total_alloc = atoll(argv[1]);
+        total_alloc = atoll(argv[1]) * 1024 * 1024;
         if (total_alloc == 0) {
             perror("atoi failed\n");
         }
