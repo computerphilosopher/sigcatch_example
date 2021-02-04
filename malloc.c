@@ -33,8 +33,8 @@ int main(int argc, char** argv) {
     catch_sigterm();
 
     int *ptr = NULL;
-    //100mib
-    int to_alloc = 1024 * 1024 * 100;
+    //50mib
+    int to_alloc = 1024 * 1024 * 50;
 
     //1Gib
     long long total_alloc = 1024 * 1024 * 1024;
