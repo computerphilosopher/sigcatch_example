@@ -1,8 +1,10 @@
-FROM centos:7
+FROM centos:7 AS builder
 
-ARG GIT_REPO=https://github.com/computerphilosopher/sigcatch_example
+COPY ./malloc.c .
 
 RUN yum update -y; \
-yum install -y gcc git; \
-git clone $GIT_REPO; \
-gcc -o sigcatch_example/catch sigcatch_example/catch.c
+yum install -y gcc; \
+gcc -o malloc malloc.c
+
+FROM centos:7
+COPY --from=builder /malloc .

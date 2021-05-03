@@ -10,10 +10,9 @@ spec:
  - name: malloc
    image: jam2in/eviction_example:latest
    #1.5Gb
-   command: ['/sigcatch_example/malloc', '1700']
-   #command: ['/bin/bash', '-c', 'sleep 500000']
+   command: ['malloc', '1700']
    lifecycle:
      preStop:
        exec:
-         command: ['/bin/sh', '-c', 'sleep 50']
- terminationGracePeriodSeconds: 10
+         command: ['/bin/sh', '-c', 'sleep 600']
+ terminationGracePeriodSeconds: 1000

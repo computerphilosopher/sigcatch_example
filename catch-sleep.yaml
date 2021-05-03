@@ -9,9 +9,9 @@ spec:
      #imagePullPolicy: Always
  - name: catch-sleep
    image: jam2in/sigcatch_example:latest
-   command: ["/sigcatch_example/catch"]
+   command: ["malloc"]
    lifecycle:
      preStop:
        exec:
-         command: ['/bin/sh', '-c', 'sleep 50']
- terminationGracePeriodSeconds: 10
+         command: ['/bin/sh', '-c', 'sleep 10000']
+ terminationGracePeriodSeconds: 1000000
